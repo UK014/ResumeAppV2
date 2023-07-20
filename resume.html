@@ -1,0 +1,144 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="resume.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
+    </head>
+    <body>
+        <div id="main">
+            <div id="circle1"><h1 style="color: white;">1</h1></div>
+            <div id="stick1"></div>
+            <div id="circle2"><h1 style="color: white;">2</h1></div>
+            <div id="stick2"></div>
+            <div id="circle3"><h1 style="color: white;">3</h1></div>
+            <div id="head">
+                <h1>RESUME BUILDER by Umut Keskin</h1>
+            </div>
+            <div id="first">
+                <div id="PersonalInfo">
+                    <label class="plabel">First Name:</label>
+                    <br>
+                    <input type="text" id="name">
+                    <br>
+                    <label class="plabel">Surname:</label>
+                    <br>
+                    <input type="text" id="surname">
+                    <br>
+                    <label class="plabel">E - Mail:</label>
+                    <br>
+                    <input type="text" id="email">
+                    <br>
+                    <label class="plabel">Phone:</label>
+                    <br>
+                    <input type="text" id="phone">
+                </div>
+                <div id="Skill">
+                    <label class="plabel">Skills:</label>
+                    <br>
+                    <input type="text" id="Skills">
+                    <button id="skillsbtn" class="button-18" role="button">Add Skills</button>
+                    <br>
+                    <ul id="skillslist"></ul>
+                </div>
+                <div id="languages">
+                    <label class="plabel">Language:</label>
+                    <br>
+                    <input type="text" id="Language">
+                    <button  class="button-18" role="button" id="languagebtn">Add Languages</button>
+                    <br>
+                    <ul id="languagelist"></ul>
+                    <button onclick="SecondDiv()" class="button-18" style="position: absolute;left:91%;top:90%" role="button">Next ></button>
+                </div>
+                    
+                
+                
+            </div>
+            <div id="second">
+                <div id="experience">
+                    <select id="workexperience" onchange="experience()">
+                        <option>-- Add The Job --</option>
+                        <option value="jobone">1</option>
+                        <option value="jobtwo">2</option>
+                    </select>
+                    <br>
+                    <label>Job Title</label>
+                    <input type="text" id="Title" name="Title" class="inputs">
+                    <label>Company</label>
+                    <input type="text" id="Company" name="Company" class="inputs">
+                    <label>Start Date</label>
+                    <label> End Date</label>
+                    <input type="month" id="EXSDate" class="inputs">
+                    <input type="month" id="EXEDate" class="inputs"><br><br><br>
+                    <textarea id="Description1" class="inputs" rows="6" cols="50"></textarea>
+                    <br><br>
+                    <div id="secondexperience">
+                    <label>Job Title</label>
+                    <input type="text" id="SecondTitle" name="SecondTitle" class="jobexperience2" />
+                    <label>Company</label>
+                    <input type="text" id="SecondCompany" name="SecondCompany" class="jobexperience2" />
+                    <label >Start Date</label>
+                    <label > End Date</label>
+                    <input type="month" id="SecondEXSDate" class="jobexperience2">
+                    <input type="month" id="SecondEXEDate" class="jobexperience2"><br><br><br>
+                    <textarea id="Description2" name="Description2" class="jobexperience2" rows="6" cols="50"></textarea>
+                    </div>
+                    
+                </div>
+                <button onclick="Backtofirstdiv()" class="button-18" style="position: absolute;left:1%;top:90%" role="button"> < Back</button>
+                <button style="position: absolute;left:91%;top:90%" onclick="ThirdDiv()" class="button-18" role="button">Next ></button>
+            </div>
+            <div id="third">
+                <div id="thirdleft">
+                    <label>Bachelor</label>
+                    <input id="bachelor" type="checkbox" onclick="handleCheckboxClick('bachelor')"><br>
+                    <label>Master</label>
+                    <input id="master" type="checkbox" onclick="handleCheckboxClick('master')"><br>
+                    <label>Doctorate</label>
+                    <input id="phd" type="checkbox" onclick="handleCheckboxClick('phd')">
+                </div>
+                <div id="verthr"></div>
+                <div id="bachelordiv">
+                    <h2 style="text-align: center;" class="header">Bachelor</h2>
+                    <label class="bachelor">University</label>
+                    <input type="text" id="BachelorUniversity" name="BachelorUniversity" class="bachelor" />
+                    <label class="txt" id="degreelabel" class="bachelor">Degree</label>
+                    <input type="text" id="BachelorDegree" name="BachelorDegree" class="bachelor" />
+                    <label class="bachelor" >Start Date</label>
+                    <label class="bachelor" id="enddate"> End Date</label>
+                    <input type="month" id="BEDSDate" name="BEDSDate" class="bachelor" />
+                    <input type="month" id="BEDEDate" name="BEDEDate" class="bachelor" />
+                </div>
+                <div id="masterdiv">
+                    <h2 style="text-align: center;" class="header">Master</h2>
+                    <label class="master">University</label>
+                    <input type="text" id="MasterUniversity" name="MasterUniversity" class="master" />
+                    <label class="master" id="degreelabel">Degree</label>
+                    <input type="text" id="MasterDegree" name="MasterDegree" class="master" />
+                    <label class="master">Start Date</label>
+                    <label class="master" id="enddate"> End Date</label>
+                    <input type="month" id="MEDSDate" name="MEDSDate" class="master" />
+                    <input type="month" id="MEDEDate" name="MEDEDate" class="master" />
+                </div>
+                <div id="phddiv">
+                    <h2 style="text-align: center;" class="header">Doctorate</h2>
+                    <label class="master">University</label>
+                    <input type="text" id="PhDUniversity" class="master" />
+                    <label class="master" id="degreelabel">Degree</label>
+                    <input type="text" id="PhDDegree" name="PhDDegree" class="master" />
+                    <label class="master">Start Date</label>
+                    <label class="master" id="enddate"> End Date</label>
+                    <input type="month" id="PEDSDate" name="PEDSDate" class="master" />
+                    <input type="month" id="PEDEDate" name="PEDEDate" class="master" />
+                </div>
+                <button onclick="BacktoSeconddiv()" class="button-18" style="position: absolute;left:1%;top:90%" role="button"> < Back</button>
+                <button style="position: absolute;left:91%;top:90%" onclick="generate(),FourthDiv()" class="button-18" role="button">Create</button>
+            </div>
+            <div id="fourth">
+                <h1>YOU HAVE SUCCESFULLY CREATED YOUR RESUME</h1>
+            </div>
+             
+    </div>
+    
+    <script src="pdf.js"></script>
+    <script src="index.js"></script>
+    </body>
+</html>
